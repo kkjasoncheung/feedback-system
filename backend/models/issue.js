@@ -23,5 +23,6 @@ let Issue = new Schema({
     }
 });
 
+var IssueModel = mongoose.model('Issue', Issue);
 // Export the schema as a model
-export default mongoose.model('Issue', Issue);
+module.exports.IssueModel = IssueModel;
