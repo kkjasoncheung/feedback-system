@@ -18,8 +18,9 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // connect to mongoDB with URL.
-// TODO: Set up MongoDB instance to connect to
-mongoose.connect('');
+//Set up default mongoose connection
+var mongoDB = 'mongodb://127.0.0.1/my_database';
+mongoose.connect(mongoDB);
 
 const connection = mongoose.connection;
 
