@@ -1,7 +1,7 @@
 "use strict";
 var cookieParser = require('cookie-parser');
 var express = require('express');
-var cors = require('cores');
+var cors = require('cors');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Issue = require('./models/issue');
