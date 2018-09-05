@@ -34,10 +34,10 @@ router.route('/add').post((req, res) => {
     // Create a new issue with data already in body
     // let issue = new Issue(req.body);
     Issue.IssueModel.create({
-        title: 'Sample Issue',
-        response: 'Sample Response',
-        description: 'Sample Description',
-        severity: 'Low'
+        title: req.body.title,
+        response: req.body.response,
+        description: req.body.description,
+        severity: req.body.severity
     }, (err, issue) => {
         if (err) {
             res.status(400).json('Issue was not added to database');
