@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,7 +30,8 @@ const routes: Routes = [
     BrowserAnimationsModule,
     // Configure the router module for root
     RouterModule.forRoot(routes),
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
