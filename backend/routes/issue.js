@@ -32,11 +32,18 @@ router.route('/:id').get((req, res) => {
 // Route to add issue to database
 router.route('/add').post((req, res) => {
     // Create a new issue with data already in body
-    let issue = new Issue(req.body);
-    issue.save().then((issue) => {
-        res.status(200).json({'issue': 'Added successfully'});
-    }).catch((err) => {
-        res.status(400).send('Failed to create new record');
+    // let issue = new Issue(req.body);
+    Issue.IssueModel.create({
+        title: 'Sample Issue',
+        response: 'Sample Response',
+        description: 'Sample Description',
+        severity: 'Low'
+    }, (err, issue) => {
+        if (err) {
+            res.status(400).json('Issue was not added to database');
+        } else {
+            res.status(200).json(issue);
+        }
     });
 });
 
