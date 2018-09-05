@@ -8,7 +8,7 @@ let Issue = new Schema({
     title: {
         type: String
     },
-    reponse: {
+    response: {
         type: String
     },
     description: {
