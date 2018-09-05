@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 
 // Route to find issue by id
 router.route('/:id').get((req, res) => {
-    Issue.findById(req.params.id, (err, issue) => {
+    Issue.IssueModel.findById(req.params.id, (err, issue) => {
         if (err) {
             console.log(err);
         } else {

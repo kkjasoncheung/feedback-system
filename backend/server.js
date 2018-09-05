@@ -29,7 +29,7 @@ connection.once('open', () => {
     console.log('Connection to MongoDB has been established successfully');
 });
 
-app.use('/', issueRouter);
+app.use('/issues', issueRouter);
 
 // Route to set cookie
 app.get('/cookies', (req, res) => {
