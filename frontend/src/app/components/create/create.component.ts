@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Issue } from '../issue';
+import { IssuesService } from '../../issues.service';
 
 @Component({
   selector: 'app-create',
@@ -16,13 +17,12 @@ export class CreateComponent implements OnInit {
     severity: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private issueService: IssuesService) { }
 
   ngOnInit() {
   }
 
   /* Submit function */
-  // TODO: Call API service
   submit(): void {
     // Create issue object based on interface
     var newIssue: Issue = {
@@ -33,7 +33,12 @@ export class CreateComponent implements OnInit {
       status: 'Open'
     }
 
-    console.log('Created new issue: ' + JSON.stringify(newIssue));
+    // make POST request to API
+    this.issueService.addIssue(newIssue).subscribe((issue: Issue) => {
+      console.log('Successfully added new issue: ' + JSON.stringify(issue));
+    }, (error) => {
+      console.log(error);
+    });
   }
 
 }

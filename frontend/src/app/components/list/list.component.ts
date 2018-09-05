@@ -18,7 +18,9 @@ export class ListComponent implements OnInit {
     this.issuesService.getIssues().subscribe((issues: Issue[]) => {
       console.log(issues);
       this.issuesList = issues;
-    });;
+    }, (error) => {
+      console.log(error);
+    });
   }
 
 }
