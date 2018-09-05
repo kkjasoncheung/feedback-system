@@ -1,20 +1,20 @@
-<mat-card id="create-card">
+<mat-card [formGroup]="issueForm" id="create-card">
   <mat-card-title>Create new issue</mat-card-title>
   <mat-card-content>
     <mat-form-field>
-      <input matInput placeholder="Title">
+      <input matInput formControlName="title" placeholder="Title">
     </mat-form-field>
     <br>
     <mat-form-field>
-      <textarea matInput placeholder="Reason"></textarea>
+      <textarea matInput formControlName="reason" placeholder="Reason"></textarea>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <textarea matInput placeholder="Description"></textarea>
+      <textarea matInput formControlName="description" placeholder="Description"></textarea>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <mat-select [(value)]="severity" placeholder="Severity">
+      <mat-select formControlName="severity" placeholder="Severity">
         <mat-option value="low">Low</mat-option>
         <mat-option value="medium">Medium</mat-option>
         <mat-option value="high">High</mat-option>
@@ -25,3 +25,5 @@
     <button mat-button (click)="submit()">SUBMIT</button>
   </mat-card-actions>
 </mat-card>
+
+{{ issueForm.status }}

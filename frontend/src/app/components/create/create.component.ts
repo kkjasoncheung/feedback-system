@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Issue } from '../issue';
 
 @Component({
@@ -8,9 +9,14 @@ import { Issue } from '../issue';
 })
 export class CreateComponent implements OnInit {
 
-  private severity: string;
+  public issueForm = this.fb.group({
+    title: ['', Validators.required],
+    reason: ['', Validators.required],
+    description: ['', Validators.required],
+    severity: ['', Validators.required]
+  });
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
   }
@@ -18,7 +24,7 @@ export class CreateComponent implements OnInit {
   /* Submit function */
   // TODO: Call API service
   submit(): void {
-    console.log('form is submitted');
+    console.log(this.issueForm);
   }
 
 }

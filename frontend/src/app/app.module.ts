@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
+// Angular Material imports
 import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatSelectModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -34,7 +36,8 @@ const routes: Routes = [
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
