@@ -1,1 +1,10 @@
 <button mat-button routerLink="/create">Create new issue</button>
+<div>
+    <ul>
+        <li *ngFor="let issue of issuesList">
+            Title: {{ issue.title }}
+            <br>
+            ID: {{ issue._id }}
+        </li>
+    </ul>
+</div>

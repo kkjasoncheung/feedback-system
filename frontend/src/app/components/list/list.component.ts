@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IssuesService } from '../../issues.service';
+import { Issue } from '../issue';
 
 @Component({
   selector: 'app-list',
@@ -8,11 +9,16 @@ import { IssuesService } from '../../issues.service';
 })
 export class ListComponent implements OnInit {
 
+  public issuesList: Issue[];
+
   constructor(private issuesService: IssuesService) {
   }
 
   ngOnInit() {
-    this.issuesService.getIssues();
+    this.issuesService.getIssues().subscribe((issues: Issue[]) => {
+      console.log(issues);
+      this.issuesList = issues;
+    });;
   }
 
 }
