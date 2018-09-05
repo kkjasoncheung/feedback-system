@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Issue } from '../issue';
 
 @Component({
   selector: 'app-create',
@@ -7,11 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  private severity: String;
+  private severity: string;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  /* Submit function */
+  // TODO: Call API service
+  submit(): void {
+    console.log('form is submitted');
   }
 
 }
