@@ -11,7 +11,7 @@ export class CreateComponent implements OnInit {
 
   public issueForm = this.fb.group({
     title: ['', Validators.required],
-    reason: ['', Validators.required],
+    response: ['', Validators.required],
     description: ['', Validators.required],
     severity: ['', Validators.required]
   });
@@ -24,7 +24,16 @@ export class CreateComponent implements OnInit {
   /* Submit function */
   // TODO: Call API service
   submit(): void {
-    console.log(this.issueForm);
+    // Create issue object based on interface
+    var newIssue: Issue = {
+      title: this.issueForm.value.title,
+      response: this.issueForm.value.response,
+      description: this.issueForm.value.description,
+      severity: this.issueForm.value.severity,
+      status: 'Open'
+    }
+
+    console.log('Created new issue: ' + JSON.stringify(newIssue));
   }
 
 }
