@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
+  private severity: String;
+
   constructor() { }
 
   ngOnInit() {
