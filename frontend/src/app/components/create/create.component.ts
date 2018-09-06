@@ -9,7 +9,7 @@ import { IssuesService } from '../../issues.service';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
+  
   public issueForm = this.fb.group({
     title: ['', Validators.required],
     response: ['', Validators.required],
