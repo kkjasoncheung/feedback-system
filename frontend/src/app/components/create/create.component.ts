@@ -24,21 +24,23 @@ export class CreateComponent implements OnInit {
 
   /* Submit function */
   submit(): void {
-    // Create issue object based on interface
-    var newIssue: Issue = {
-      title: this.issueForm.value.title,
-      response: this.issueForm.value.response,
-      description: this.issueForm.value.description,
-      severity: this.issueForm.value.severity,
-      status: 'Open'
-    }
+    if (this.issueForm.valid) {
+      // Create issue object based on interface
+      var newIssue: Issue = {
+        title: this.issueForm.value.title,
+        response: this.issueForm.value.response,
+        description: this.issueForm.value.description,
+        severity: this.issueForm.value.severity,
+        status: 'Open'
+      }
 
-    // make POST request to API
-    this.issueService.addIssue(newIssue).subscribe((issue: Issue) => {
-      console.log('Successfully added new issue: ' + JSON.stringify(issue));
-    }, (error) => {
-      console.log(error);
-    });
+      // make POST request to API
+      this.issueService.addIssue(newIssue).subscribe((issue: Issue) => {
+        console.log('Successfully added new issue: ' + JSON.stringify(issue));
+      }, (error) => {
+        console.log(error);
+      });
+    }
   }
 
 }
