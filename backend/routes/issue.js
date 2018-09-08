@@ -1,7 +1,7 @@
 // Import dependencies
 var express = require('express');
 var mongoose = require('mongoose');
-var Issue = require('../models/issue');
+const Issue = require('../models/issue');
 
 // Create router
 var router = express.Router();
@@ -49,7 +49,7 @@ router.route('/add').post((req, res) => {
 
 // Route to update existing issues
 router.route('/update/:id').put((req, res) => {
-    Issue.findById(req.params.id, (err, issue) => {
+    Issue.IssueModel.findById(req.params.id, (err, issue) => {
         if (!issue) {
             return next(new Error('Could not find document'));
         } else {
@@ -71,7 +71,7 @@ router.route('/update/:id').put((req, res) => {
 
 // Route to delete issue from database
 router.route('/delete/:id').delete((req, res) => {
-    Issue.findByIdAndRemove(req.params.id, (err, issue) => {
+    Issue.IssueModel.findByIdAndDelete(req.params.id, (err, issue) => {
         if (!err) {
             // call the next middleware function
             res.json(err);
