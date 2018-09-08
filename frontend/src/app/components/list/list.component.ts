@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IssuesService } from '../../issues.service';
 import { Issue } from '../issue';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -12,7 +13,7 @@ export class ListComponent implements OnInit {
   public issuesList: Issue[];
   public noIssues: boolean;
 
-  constructor(private issuesService: IssuesService) {
+  constructor(private issuesService: IssuesService, private router: Router) {
   }
 
   ngOnInit() {
@@ -25,7 +26,11 @@ export class ListComponent implements OnInit {
       // Show an updated list of issues
       this.updateIssuesList();
     });
+  }
 
+  public edit(id) {
+    console.log('Edit issue with ' + id);
+    this.router.navigate(['/edit', id]);
   }
 
   public updateIssuesList() {
