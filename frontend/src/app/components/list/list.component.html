@@ -2,7 +2,8 @@
 <div>
     <h3 id="no-issues" *ngIf="noIssues">There are currently no issues.</h3>
     <br>
-    <div *ngIf="!noIssues">
+    <div *ngIf="!noIssues" id="issue-cards">
+        <h3>Issues</h3>
         <mat-card *ngFor="let issue of issuesList" class="issue-card">
             <mat-card-title>
                 {{ issue.title }}

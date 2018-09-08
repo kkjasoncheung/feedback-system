@@ -6,3 +6,7 @@
 #no-issues {
     text-align: center;
 }
+
+#issue-cards h3 {
+    text-align-last: center;
+}
