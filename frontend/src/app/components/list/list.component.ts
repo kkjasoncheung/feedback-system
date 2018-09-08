@@ -10,6 +10,7 @@ import { Issue } from '../issue';
 export class ListComponent implements OnInit {
 
   public issuesList: Issue[];
+  public noIssues: boolean;
 
   constructor(private issuesService: IssuesService) {
   }
@@ -31,6 +32,7 @@ export class ListComponent implements OnInit {
     this.issuesService.getIssues().subscribe((issues: Issue[]) => {
       console.log(issues);
       this.issuesList = issues;
+      this.noIssues = this.issuesList.length === 0;
     }, (error) => {
       console.log(error);
     });
