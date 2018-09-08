@@ -22,4 +22,10 @@ export class IssuesService {
   public addIssue(issue: Issue) {
     return this.http.post<Issue>(this.issuesURL + '/add', issue);
   }
+
+  // DELETE request to delete issue by id
+  public deleteIssue(issue_id: string) {
+    return this.http.delete(this.issuesURL + '/delete/' + issue_id);
+  }
+
 }

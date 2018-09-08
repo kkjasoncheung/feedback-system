@@ -15,6 +15,19 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.updateIssuesList();
+  }
+
+  public delete(id) {
+    console.log('Delete issue with ' + id);
+    this.issuesService.deleteIssue(id).subscribe(() => {
+      // Show an updated list of issues
+      this.updateIssuesList();
+    });
+
+  }
+
+  public updateIssuesList() {
     this.issuesService.getIssues().subscribe((issues: Issue[]) => {
       console.log(issues);
       this.issuesList = issues;
@@ -22,5 +35,4 @@ export class ListComponent implements OnInit {
       console.log(error);
     });
   }
-
 }
