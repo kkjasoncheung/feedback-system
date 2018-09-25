@@ -1,6 +1,6 @@
 # Work in progress
 
-# Issue/Feedback Submission
+# Anonymous Issue and Feedback Submission System
 This application is created with the MEAN stack. (MongoDB, Express, Angular, NodeJS). The purpose of this application is to allow anonymous submission of issues/feedback.
 
 ## Getting started
